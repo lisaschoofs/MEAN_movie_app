@@ -2,12 +2,8 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('InputController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('OneController loaded');
-  // MovieService.getOMDB();
   $scope.movieAPI = MovieService.movieAPI;
   $scope.getOMDB = MovieService.getOMDB;
-  $scope.favoritesArray = MovieService.favoritesArray;
-  $scope.addFavorite = MovieService.addFavorite;
-  console.log('logging favoritesArray', $scope.favoritesArray);
 }]);
 
 
@@ -22,15 +18,17 @@ myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, Mo
     $scope.addFavorite = MovieService.addFavorite;
 }]);
 
-
-
-
-
 myApp.factory('MovieService', ['$http', function($http){
 
 // var infoFromServer = {};
 var favoritesArray = [];
 var movieObject = {};
+
+function saveFavorite(movie) {
+  $http.post('movies', movie).then(function(response){
+
+  });
+}
 
   return {
     favoritesArray: favoritesArray,
@@ -54,6 +52,7 @@ var movieObject = {};
       console.log('logging movie', movie);
       favoritesArray.push(movie.data);
       console.log('logging favoritesArray', favoritesArray);
+      saveFavorite(movie);
     }
   };//end return
 }]);
@@ -67,3 +66,10 @@ var movieObject = {};
 //       console.log(response);
 //   });
 // },
+
+// function getRequest(){
+//   $http.get('/movie').then(function(respsonse){
+//       infoFromServer.response = response;
+//       console.log(response);
+//   });
+// }

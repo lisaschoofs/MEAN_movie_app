@@ -2,16 +2,35 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-router.get('/', function(req,res){
-  res.send('connected to movies.js');
+var MovieSchema = mongoose.Schema({
+  Title: String,
+  Director: String,
+  Year: Number,
+  Plot: String
 });
 
-// var MovieSchema = mongoose.Schema({
-//     name: String,
-//     message: String
+var Movie = mongoose.model('Movie', MovieSchema);
+
+// router.get('/', function(req,res){
+//   res.send('connected to movies.js');
 // });
-//
-// var Movie = mongoose.model('movie', MovieSchema, 'movies');
+
+router.post('/', function(req,res){
+  var favorite = new Movie();
+  favorite.Title = req.body.Title;
+  favorite.Director = req.body.Director;
+  favorite.Year = req.body.Year;
+  favorite.Plot = req.body.Plot;
+  favorite.save(function(err, savedMovie){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }//end if
+    res.send(savedMovie);
+  }); //end save
+});
+
+
 //
 // router.get('/', function(req,res){
 //     Movie.find({}, function(err, allMovies){
