@@ -19,13 +19,19 @@
 
     </div>
     <div ng-controller="TwoController">
-      <!-- <div ng-repeat="movie in movieObject.response"> -->
+      <div id='movieinfo'>
         <p> {{ movieObject.data.Title }} </p>
         <p> {{ movieObject.data.Director }} </p>
         <p> {{ movieObject.data.Year }} </p>
         <p> {{ movieObject.data.Plot }} </p>
         <button type="button" ng-click="addFavorite(movieObject)">Add to Favorites</button>
-      <!-- </div> -->
+      </div>
+      <div id='array' ng-repeat="movie in favoritesArray">
+        <p> {{ movie.Title }} </p>
+        <p> {{ movie.Director }} </p>
+        <p> {{ movie.Year }} </p>
+        <p> {{ movie.Plot }} </p>
+      </div>
     </div>
   </body>
 </html>

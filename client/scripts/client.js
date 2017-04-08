@@ -7,6 +7,7 @@ myApp.controller('InputController', ['$scope', 'MovieService', function($scope, 
   $scope.getOMDB = MovieService.getOMDB;
   $scope.favoritesArray = MovieService.favoritesArray;
   $scope.addFavorite = MovieService.addFavorite;
+  console.log('logging favoritesArray', $scope.favoritesArray);
 }]);
 
 
