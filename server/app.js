@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var db = require('./modules/db.js');
 
-var movie = require('./routes/movies.js');
+var movies = require('./routes/movies.js');
 var index = require('./routes/index.js');
 
 app.set('port', (process.env.PORT || 5000 ));
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('server/public'));
 
-app.use('/movie', movies);
+app.use('/movies', movies);
 app.use('/', index);
 
 app.listen(app.get('port'), function(){

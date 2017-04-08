@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="styles/style.css">
     <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/client.min.js"></script>
+    <!-- <script type="text/javascript" src="./client/scripts/client.js"></script> -->
 
   </head>
   <body>
     <h1 class="jumbotron">Movies!</h1>
     <div ng-controller="OneController">
 
+
     </div>
     <div ng-controller="TwoController">
-      <p> {{ infoFromServer.response.data }} </p>
+      <!-- <div ng-repeat="movie in movieObject.response"> -->
+        <p> {{ movieObject.response.data }} </p>
+      <!-- </div> -->
     </div>
   </body>
 </html>
