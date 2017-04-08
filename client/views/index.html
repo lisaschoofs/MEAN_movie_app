@@ -13,8 +13,9 @@
   </head>
   <body>
     <h1 class="jumbotron">Movies!</h1>
-    <div ng-controller="OneController">
-
+    <div ng-controller="InputController">
+      <input type="text" ng-model="newMovie.title" placeholder="Add a Title">
+      <button type="button" ng-click="getOMDB(newMovie)">Search for Movie</button>
 
     </div>
     <div ng-controller="TwoController">

@@ -1,10 +1,11 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('OneController', ['$scope', 'MovieService', function($scope, MovieService){
+myApp.controller('InputController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('OneController loaded');
-  MovieService.getOMDB();
+  // MovieService.getOMDB();
   $scope.movieAPI = MovieService.movieAPI;
-  // MovieService.getRequest();
+  $scope.getOMDB = MovieService.getOMDB;
+
 }]);
 
 
@@ -15,13 +16,11 @@ myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, Mo
 
     $scope.movieAPI = MovieService.movieAPI;
     $scope.movieObject = MovieService.movieObject;
-      // console.log('here is scope.movieObject in controller 2: ' + $scope.movieObject);
+      //
+      // console.log('here is scope.movieObject in controller 2: ', $scope.movieObject);
       // console.log('here is MovieService.movieObject in controller 2: ', MovieService.movieObject);
-      // console.log('here is $scope.movieObject.response in controller 2: ', $scope.movieObject);
-      console.log('here is scope.movieObject in controller 2: ', $scope.movieObject);
-      console.log('here is MovieService.movieObject in controller 2: ', MovieService.movieObject);
-      console.log('here is $scope.movieObject in controller 2: ', $scope.movieObject);
-      console.log('here is $scope.movieObject.data in controller 2: ', $scope.movieObject.data);
+      // console.log('here is $scope.movieObject in controller 2: ', $scope.movieObject);
+      // console.log('here is $scope.movieObject.data in controller 2: ', $scope.movieObject.data);
 
 }]);
 
@@ -34,15 +33,15 @@ myApp.factory('MovieService', ['$http', function($http){
 // var infoFromServer = {};
 var movieAPI = [];
 var movieObject = {
-  // movieAPI : movieAPI
+
 };
 
   return {
     movieAPI : movieAPI,
     movieObject : movieObject,
-    getOMDB : function() {
-      var movie = 'Interstellar';
-      $http.get('http://www.omdbapi.com/?t=' + movie + '&y=&plot=short&r=json').then(function(response){
+    getOMDB : function(newMovie) {
+      var movie = newMovie;
+      $http.get('http://www.omdbapi.com/?t=' + movie.title + '&y=&plot=short&r=json').then(function(response){
         console.log('here is repsonse from API ', response);
         // movieObject.response = response;
         // console.log('here is movieObject.response ', movieObject.response);
