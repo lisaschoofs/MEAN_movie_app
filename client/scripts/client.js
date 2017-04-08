@@ -5,7 +5,8 @@ myApp.controller('InputController', ['$scope', 'MovieService', function($scope, 
   // MovieService.getOMDB();
   $scope.movieAPI = MovieService.movieAPI;
   $scope.getOMDB = MovieService.getOMDB;
-
+  $scope.favoritesArray = MovieService.favoritesArray;
+  $scope.addFavorite = MovieService.addFavorite;
 }]);
 
 
@@ -16,12 +17,8 @@ myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, Mo
 
     $scope.movieAPI = MovieService.movieAPI;
     $scope.movieObject = MovieService.movieObject;
-      //
-      // console.log('here is scope.movieObject in controller 2: ', $scope.movieObject);
-      // console.log('here is MovieService.movieObject in controller 2: ', MovieService.movieObject);
-      // console.log('here is $scope.movieObject in controller 2: ', $scope.movieObject);
-      // console.log('here is $scope.movieObject.data in controller 2: ', $scope.movieObject.data);
-
+    $scope.favoritesArray = MovieService.favoritesArray;
+    $scope.addFavorite = MovieService.addFavorite;
 }]);
 
 
@@ -31,13 +28,11 @@ myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, Mo
 myApp.factory('MovieService', ['$http', function($http){
 
 // var infoFromServer = {};
-var movieAPI = [];
-var movieObject = {
-
-};
+var favoritesArray = [];
+var movieObject = {};
 
   return {
-    movieAPI : movieAPI,
+    favoritesArray: favoritesArray,
     movieObject : movieObject,
     getOMDB : function(newMovie) {
       var movie = newMovie;
@@ -53,7 +48,12 @@ var movieObject = {
         // movieObject = response;
         // movieObject = angular.copy(response);
       }); //end get
-    } //end getOMDB
+    }, //end getOMDB
+    addFavorite : function(movie) {
+      console.log('logging movie', movie);
+      favoritesArray.push(movie.data);
+      console.log('logging favoritesArray', favoritesArray);
+    }
   };//end return
 }]);
 

@@ -7,11 +7,11 @@ Your application will need to be built from the ground up using Angular, Node, E
 
   - [] There should be two views to the application, one side that searches and displays movie information made available from OMDB. This should be accomplished by having an entry field for the search string, then a submit button that sends the information to OMDB.
 
-  - [] When the API returns the response, the response should be data bound between an object and the response so that the search information appears as soon as the response returns from the API.
+  - [x] When the API returns the response, the response should be data bound between an object and the response so that the search information appears as soon as the response returns from the API.
 
-  - [] You MUST use an Angular factory to send the API call ($http).
+  - [x] You MUST use an Angular factory to send the API call ($http).
 
-  - [] The information that is returned from the API will be a movie object. You must display some of the movie information on the DOM in a meaningful way. Additionally, you must have an 'add to favorites' button on those results.
+  - [x] The information that is returned from the API will be a movie object. You must display some of the movie information on the DOM in a meaningful way. Additionally, you must have an 'add to favorites' button on those results.
 
  - [] When the 'add to favorites' button is clicked, it should record the information for the movie and store it into an array of favorites.
 

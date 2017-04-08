@@ -21,6 +21,10 @@
     <div ng-controller="TwoController">
       <!-- <div ng-repeat="movie in movieObject.response"> -->
         <p> {{ movieObject.data.Title }} </p>
+        <p> {{ movieObject.data.Director }} </p>
+        <p> {{ movieObject.data.Year }} </p>
+        <p> {{ movieObject.data.Plot }} </p>
+        <button type="button" ng-click="addFavorite(movieObject)">Add to Favorites</button>
       <!-- </div> -->
     </div>
   </body>
