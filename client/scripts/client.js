@@ -1,21 +1,19 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('InputController', ['$scope', 'MovieService', function($scope, MovieService){
+//handles search input, calling getOMDB (API get), display of search results
+myApp.controller('SearchController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('OneController loaded');
-  $scope.movieAPI = MovieService.movieAPI;
   $scope.getOMDB = MovieService.getOMDB;
+  $scope.movieObject = MovieService.movieObject;
+  $scope.addFavorite = MovieService.addFavorite;
+
 }]);
 
-
-
-
-myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, MovieService){
+//handles display of favorite movies
+myApp.controller('FavoriteController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('TwoController loaded');
+  $scope.favoritesArray = MovieService.favoritesArray;
 
-    $scope.movieAPI = MovieService.movieAPI;
-    $scope.movieObject = MovieService.movieObject;
-    $scope.favoritesArray = MovieService.favoritesArray;
-    $scope.addFavorite = MovieService.addFavorite;
 }]);
 
 myApp.factory('MovieService', ['$http', function($http){

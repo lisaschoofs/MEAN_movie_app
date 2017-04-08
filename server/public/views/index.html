@@ -15,30 +15,27 @@
     <h1 class="jumbotron">Movies!</h1>
 
     <div class="row">
-      <div class="col-md-6 text-center" ng-controller="InputController">
+      <div class="col-md-12 text-center" ng-controller="SearchController">
         <input type="text" ng-model="newMovie.title" placeholder="Add a Title">
         <button type="button" ng-click="getOMDB(newMovie)">Search for Movie</button>
+        <div id='movieinfo'>
+          <p> {{ movieObject.data.Title }} </p>
+          <p> {{ movieObject.data.Director }} </p>
+          <p> {{ movieObject.data.Year }} </p>
+          <p> {{ movieObject.data.Plot }} </p>
+          <button type="button" ng-click="addFavorite(movieObject)">Add to Favorites</button>
+        </div>
       </div>
 
-    <div ng-controller="TwoController">
-
-      <div id='movieinfo'>
-        <p> {{ movieObject.data.Title }} </p>
-        <p> {{ movieObject.data.Director }} </p>
-        <p> {{ movieObject.data.Year }} </p>
-        <p> {{ movieObject.data.Plot }} </p>
-        <button type="button" ng-click="addFavorite(movieObject)">Add to Favorites</button>
-      </div>
-
-      <div class="col-md-6 text-center" id="array" ng-repeat="movie in favoritesArray">
-        <p> {{ movie.Title }} </p>
-        <p> {{ movie.Director }} </p>
-        <p> {{ movie.Year }} </p>
-        <p> {{ movie.Plot }} </p>
+      <div ng-controller="FavoriteController">
+        <div class="col-md-12 text-center" id="array" ng-repeat="movie in favoritesArray">
+          <p> {{ movie.Title }} </p>
+          <p> {{ movie.Director }} </p>
+          <p> {{ movie.Year }} </p>
+          <p> {{ movie.Plot }} </p>
+        </div>
       </div>
 
     </div>
-
-  </div>
   </body>
 </html>
