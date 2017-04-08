@@ -15,13 +15,14 @@ myApp.controller('TwoController', ['$scope', 'MovieService', function($scope, Mo
 
     $scope.movieAPI = MovieService.movieAPI;
     $scope.movieObject = MovieService.movieObject;
-      console.log('here is scope.movieObject in controller 2: ' + $scope.movieObject);
+      // console.log('here is scope.movieObject in controller 2: ' + $scope.movieObject);
+      // console.log('here is MovieService.movieObject in controller 2: ', MovieService.movieObject);
+      // console.log('here is $scope.movieObject.response in controller 2: ', $scope.movieObject);
+      console.log('here is scope.movieObject in controller 2: ', $scope.movieObject);
       console.log('here is MovieService.movieObject in controller 2: ', MovieService.movieObject);
-      console.log('here is $scope.movieObject.response in controller 2: ', $scope.movieObject);
-    // console.log($scope.movieAPI);
-    // console.log(movieAPI.title);
-    // console.log($scope.movieObject);
-    // console.log(movieObject.title);
+      console.log('here is $scope.movieObject in controller 2: ', $scope.movieObject);
+      console.log('here is $scope.movieObject.data in controller 2: ', $scope.movieObject.data);
+
 }]);
 
 
@@ -43,8 +44,10 @@ var movieObject = {
       var movie = 'Interstellar';
       $http.get('http://www.omdbapi.com/?t=' + movie + '&y=&plot=short&r=json').then(function(response){
         console.log('here is repsonse from API ', response);
-        movieObject.response = response;
-        console.log('here is movieObject.response ', movieObject.response);
+        // movieObject.response = response;
+        // console.log('here is movieObject.response ', movieObject.response);
+        movieObject.data = response.data;
+        console.log('here is movieObject.data ', movieObject.data);
         // movieObject.response = response.data;
         // console.log(response.data);
         // movieAPI.push(response);
