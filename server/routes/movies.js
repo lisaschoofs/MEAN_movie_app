@@ -3,27 +3,30 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var MovieSchema = mongoose.Schema({
-  Title: String,
-  Director: String,
-  Year: Number,
-  Plot: String
+  title: String,
+  director: String,
+  year: Number,
+  plot: String
 });
 
-var Movie = mongoose.model('Movie', MovieSchema);
+var Movie = mongoose.model('movie', MovieSchema);
 
 // router.get('/', function(req,res){
 //   res.send('connected to movies.js');
 // });
 
+//post adds a favorite movie to mongoDB
 router.post('/', function(req,res){
-  var favorite = new Movie();
-  favorite.Title = req.body.Title;
-  favorite.Director = req.body.Director;
-  favorite.Year = req.body.Year;
-  favorite.Plot = req.body.Plot;
+  var favorite = new Movie({
+    title: req.body.Title,
+    director: req.body.Director,
+    year: req.body.Year,
+    plot: req.body.Plot
+  }); //end new movie
+
   favorite.save(function(err, savedMovie){
     if(err){
-      console.log(err);
+      console.log('Mongo Error in post: ', err);
       res.sendStatus(500);
     }//end if
     res.send(savedMovie);

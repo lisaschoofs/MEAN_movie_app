@@ -6,7 +6,7 @@ MongoDB.on('error', function(err){
   console.log('Mongo Connection Error: ', + err);
 });
 
-MongoDB.on('open', function(err){
+MongoDB.once('open', function(err){
   console.log('Connected to Mongo');
 });
 

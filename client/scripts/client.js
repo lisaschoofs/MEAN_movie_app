@@ -23,8 +23,8 @@ var favoritesArray = [];
 var movieObject = {};
 
 function saveFavorite(movie) {
-  $http.post('movies', movie).then(function(response){
-
+  $http.post('/movies', movie).then(function(response){
+    console.log('movie saved to DB');
   });
 }
 
@@ -32,9 +32,9 @@ function saveFavorite(movie) {
     favoritesArray: favoritesArray,
     movieObject : movieObject,
     getOMDB : function(newMovie) {
+      console.log('what i am sending to db: ', newMovie);
       var movie = newMovie;
       $http.get('http://www.omdbapi.com/?t=' + movie.title + '&y=&plot=short&r=json').then(function(response){
-        console.log('here is repsonse from API ', response);
         // movieObject.response = response;
         // console.log('here is movieObject.response ', movieObject.response);
         movieObject.data = response.data;
@@ -47,10 +47,10 @@ function saveFavorite(movie) {
       }); //end get
     }, //end getOMDB
     addFavorite : function(movie) {
-      console.log('logging movie', movie);
+      console.log('logging movie', movie.data);
       favoritesArray.push(movie.data);
       console.log('logging favoritesArray', favoritesArray);
-      saveFavorite(movie);
+      saveFavorite(movie.data);
     }
   };//end return
 }]);
