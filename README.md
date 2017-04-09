@@ -18,10 +18,10 @@ Your application will need to be built from the ground up using Angular, Node, E
  - [x] The other view should display the favorite movies selected by the user.
 
 ## Hard Mode
-When a favorite is added to the favorites list, store the favorites list in a Mongo Database.
+ - [x] When a favorite is added to the favorites list, store the favorites list in a Mongo Database.
 
 ## Pro Mode
-Add the ability to remove a movie from the Mongo Database, and ensure that the favorites view updates as well.
+ - [] Add the ability to remove a movie from the Mongo Database, and ensure that the favorites view updates as well.
 
 ## Master Mode
-Host the application on Heroku and mLabs. No need to do a data dump of an existing database.
+ - [] Host the application on Heroku and mLabs. No need to do a data dump of an existing database.

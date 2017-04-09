@@ -11,18 +11,27 @@ var MovieSchema = mongoose.Schema({
 
 var Movie = mongoose.model('movie', MovieSchema);
 
-// router.get('/', function(req,res){
-//   res.send('connected to movies.js');
-// });
+//get favorite movies from database
+router.get('/', function(req,res){
+    Movie.find({}, function(err, allMovies){
+      if(err){
+        console.log('Mongo Error: ', err);
+      }
+
+      res.send(allMovies);
+    });
+});
 
 //post adds a favorite movie to mongoDB
 router.post('/', function(req,res){
+  console.log('logging req: ', req);
   var favorite = new Movie({
     title: req.body.Title,
     director: req.body.Director,
     year: req.body.Year,
     plot: req.body.Plot
   }); //end new movie
+    console.log(favorite.title);
 
   favorite.save(function(err, savedMovie){
     if(err){
@@ -34,16 +43,7 @@ router.post('/', function(req,res){
 });
 
 
-//
-// router.get('/', function(req,res){
-//     Movie.find({}, function(err, allMovies){
-//       if(err){
-//         console.log('Mongo Error: ', err);
-//       }
-//
-//       res.send(allMovies);
-//     });
-// });
+
 
 
 

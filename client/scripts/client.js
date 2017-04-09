@@ -13,7 +13,8 @@ myApp.controller('SearchController', ['$scope', 'MovieService', function($scope,
 myApp.controller('FavoriteController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('TwoController loaded');
   $scope.favoritesArray = MovieService.favoritesArray;
-
+  // $scope.getFavorites = MovieService.getFavorites;
+  // getFavorites();
 }]);
 
 myApp.factory('MovieService', ['$http', function($http){
@@ -26,6 +27,13 @@ function saveFavorite(movie) {
   $http.post('/movies', movie).then(function(response){
     console.log('movie saved to DB');
   });
+}
+
+function getFavorites() {
+    $http.get('/movies').then(function(response){
+      console.log(response.data);
+      //returns an array of movie objects from DB
+    });
 }
 
   return {
@@ -51,7 +59,14 @@ function saveFavorite(movie) {
       favoritesArray.push(movie.data);
       console.log('logging favoritesArray', favoritesArray);
       saveFavorite(movie.data);
-    }
+      getFavorites();
+    },
+    // getFavorites : function() {
+    //     $http.get('/movies').then(function(response){
+    //       $scope.favoriteList = response.data;
+    //       console.log(response.data);
+    //     });
+    // }
   };//end return
 }]);
 
