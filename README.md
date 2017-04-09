@@ -5,7 +5,7 @@ For this challenge, you will be working with Angular and the OMDB API to build a
 # Base Mode
 Your application will need to be built from the ground up using Angular, Node, Express, and Bootstrap. The requirements of the application are:
 
-  - [] There should be two views to the application, one side that searches and displays movie information made available from OMDB. This should be accomplished by having an entry field for the search string, then a submit button that sends the information to OMDB.
+  - [x] There should be two views to the application, one side that searches and displays movie information made available from OMDB. This should be accomplished by having an entry field for the search string, then a submit button that sends the information to OMDB.
 
   - [x] When the API returns the response, the response should be data bound between an object and the response so that the search information appears as soon as the response returns from the API.
 

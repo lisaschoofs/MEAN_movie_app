@@ -17,7 +17,6 @@ router.get('/', function(req,res){
       if(err){
         console.log('Mongo Error: ', err);
       }
-
       res.send(allMovies);
     });
 });
@@ -41,11 +40,6 @@ router.post('/', function(req,res){
     res.send(savedMovie);
   }); //end save
 });
-
-
-
-
-
 
 
 module.exports = router;

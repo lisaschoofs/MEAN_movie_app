@@ -12,14 +12,14 @@
 
   </head>
   <body>
-    <h1 class="jumbotron">Movies!</h1>
-
+    <div ng-controller="GetController">
+      <h1 class="jumbotron">Movies!</h1>
+    </div>
     <div class="row">
-      <!-- <div class="col-md-12 text-center" ng-controller="SearchController"> -->
       <div class="col-md-4 text-center" ng-controller="SearchController">
         <input type="text" ng-model="newMovie.title" placeholder="Add a Title">
         <button type="button" ng-click="getOMDB(newMovie)">Search for Movie</button>
-        <div id='movieinfo'>
+        <div id='movieinfo' ng-show="movieObject.data.Title">
           <p> {{ movieObject.data.Title }} </p>
           <p> {{ movieObject.data.Director }} </p>
           <p> {{ movieObject.data.Year }} </p>
@@ -29,8 +29,7 @@
       </div>
 
       <div ng-controller="FavoriteController" class="col-md-8 text-center">
-        <!-- <div class="col-md-12 text-center" id="array" ng-repeat="movie in favoritesArray"> -->
-        <div id="array" ng-repeat="movie in favoritesArray">
+        <div id="array" class="well" ng-repeat="movie in favoritesArray">
           <p> {{ movie.Title }} </p>
           <p> {{ movie.Director }} </p>
           <p> {{ movie.Year }} </p>
