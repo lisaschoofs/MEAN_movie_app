@@ -1,12 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-//handles search input, calling getOMDB (API get), display of search results
-myApp.controller('GetController', ['$scope', 'MovieService', function($scope, MovieService){
-  console.log('GetController loaded');
-  // $scope.getFavorites = MovieService.getFavorites;
-  // $scope.getFavorites();
-}]);
-
+//SearchController handles search input, calling getOMDB (API get), display of search results
 myApp.controller('SearchController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('OneController loaded');
   $scope.getOMDB = MovieService.getOMDB;
@@ -14,13 +8,19 @@ myApp.controller('SearchController', ['$scope', 'MovieService', function($scope,
   $scope.addFavorite = MovieService.addFavorite;
 }]);
 
-//handles display of favorite movies
+//FavoriteController handles display of favorite movies
 myApp.controller('FavoriteController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('TwoController loaded');
   $scope.favoritesArray = MovieService.favoritesArray;
   console.log('favorites array in controller: ', $scope.favoritesArray);
 }]);
 
+
+myApp.controller('GetController', ['$scope', 'MovieService', function($scope, MovieService){
+  console.log('GetController loaded');
+  // $scope.getFavorites = MovieService.getFavorites;
+  // $scope.getFavorites();
+}]);
 
 myApp.factory('MovieService', ['$http', function($http){
 
@@ -38,22 +38,15 @@ function saveFavorite(movie) {
 //HTTP GET that returns an array of movie objects from DB
 function getFavorites() {
     $http.get('/movies').then(function(response){
-      console.log(response.data);
+      console.log('data from GET request: ', response.data);
       // favoritesArray = response.data;
-      console.log('logging favoritesArray', favoritesArray);
+      // console.log('logging favoritesArray', favoritesArray);
     });
 }
 
   return {
     favoritesArray: favoritesArray,
     movieObject : movieObject,
-    // getFavorites : function() {
-    //     $http.get('/movies').then(function(response){
-    //     favoritesArray = response.data;
-    //     console.log('logging favoritesArray', favoritesArray);
-    //     // console.log(response.data);
-    //     });
-    // },
     getFavorites : getFavorites,
     getOMDB : function(newMovie) {
       console.log('what i am sending to db: ', newMovie);

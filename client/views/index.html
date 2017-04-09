@@ -3,13 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Movies</title>
-
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="styles/style.css">
     <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="scripts/client.min.js"></script>
-    <!-- <script type="text/javascript" src="./client/scripts/client.js"></script> -->
-
   </head>
   <body>
     <div ng-controller="GetController">
@@ -17,24 +14,26 @@
     </div>
     <div class="row">
       <div class="col-md-4 text-center" ng-controller="SearchController">
+        <h2>Search for a Movie</h2>
         <input type="text" ng-model="newMovie.title" placeholder="Add a Title">
-        <button type="button" ng-click="getOMDB(newMovie)">Search for Movie</button>
-        <div id='movieinfo' ng-show="movieObject.data.Title">
-          <p> {{ movieObject.data.Title }} </p>
-          <p> {{ movieObject.data.Director }} </p>
-          <p> {{ movieObject.data.Year }} </p>
-          <p> {{ movieObject.data.Plot }} </p>
-          <button type="button" ng-click="addFavorite(movieObject)">Add to Favorites</button>
-        </div>
+        <button type="button" ng-click="getOMDB(newMovie)" class="btn btn-primary">Search for Movie</button>
+          <div id='movieinfo' ng-show="movieObject.data.Title">
+            <p> {{ movieObject.data.Title }} </p>
+            <p> {{ movieObject.data.Director }} </p>
+            <p> {{ movieObject.data.Year }} </p>
+            <p> {{ movieObject.data.Plot }} </p>
+            <button type="button" ng-click="addFavorite(movieObject)" class="btn btn-info">Add to Favorites</button>
+          </div>
       </div>
 
       <div ng-controller="FavoriteController" class="col-md-8 text-center">
-        <div id="array" class="well" ng-repeat="movie in favoritesArray">
-          <p> {{ movie.Title }} </p>
-          <p> {{ movie.Director }} </p>
-          <p> {{ movie.Year }} </p>
-          <p> {{ movie.Plot }} </p>
-        </div>
+        <h2>Favorite Movies</h2>
+          <div id="array" class="well" ng-repeat="movie in favoritesArray">
+            <p> {{ movie.Title }} </p>
+            <p> {{ movie.Director }} </p>
+            <p> {{ movie.Year }} </p>
+            <p> {{ movie.Plot }} </p>
+          </div>
       </div>
 
     </div>
