@@ -2,9 +2,9 @@
   background-color: teal;
 }*/
 
-div {
-  /*background-color: lightskyblue;*/
-}
+/*div {
+  background-color: lightskyblue;
+}*/
 
 h1 {
   text-align: center;
@@ -12,4 +12,9 @@ h1 {
 
 #array {
 
+}
+
+#headings {
+  background-color: lightskyblue;
+  padding: 50px;
 }

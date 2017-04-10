@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 //SearchController handles search input, calling getOMDB (API get), display of search results
 myApp.controller('SearchController', ['$scope', 'MovieService', function($scope, MovieService){
-  console.log('OneController loaded');
+  console.log('SearchController loaded');
   $scope.getOMDB = MovieService.getOMDB;
   $scope.movieObject = MovieService.movieObject;
   $scope.addFavorite = MovieService.addFavorite;
@@ -10,17 +10,19 @@ myApp.controller('SearchController', ['$scope', 'MovieService', function($scope,
 
 //FavoriteController handles display of favorite movies
 myApp.controller('FavoriteController', ['$scope', 'MovieService', function($scope, MovieService){
-  console.log('TwoController loaded');
+  console.log('FavoriteController loaded');
   $scope.favoritesArray = MovieService.favoritesArray;
   console.log('favorites array in controller: ', $scope.favoritesArray);
 }]);
 
-
+//This controller isn't doing anything just yet. I set it up to manage the base
+// favorites 'get' when the page loads, but that is not functional yet.
 myApp.controller('GetController', ['$scope', 'MovieService', function($scope, MovieService){
   console.log('GetController loaded');
   // $scope.getFavorites = MovieService.getFavorites;
   // $scope.getFavorites();
 }]);
+
 
 myApp.factory('MovieService', ['$http', function($http){
 
@@ -48,6 +50,7 @@ function getFavorites() {
     favoritesArray: favoritesArray,
     movieObject : movieObject,
     getFavorites : getFavorites,
+    //getOMDB connects with the OMDB api, searches DB by movie title
     getOMDB : function(newMovie) {
       console.log('what i am sending to db: ', newMovie);
       var movie = newMovie;
