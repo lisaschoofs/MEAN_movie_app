@@ -26,7 +26,6 @@ myApp.controller('GetController', ['$scope', 'MovieService', function($scope, Mo
 
 myApp.factory('MovieService', ['$http', function($http){
 
-// var infoFromServer = {};
 var favoritesArray = [];
 var movieObject = {};
 
