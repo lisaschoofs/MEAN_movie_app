@@ -17,25 +17,23 @@
         <h2>Search for a Movie</h2>
         <input type="text" ng-model="newMovie.title" placeholder="Add a Title">
         <button type="button" ng-click="getOMDB(newMovie)" class="btn btn-primary">Search for Movie</button>
-          <div id='movieinfo' ng-show="movieObject.data.Title">
-            <p> {{ movieObject.data.Title }} </p>
-            <p> {{ movieObject.data.Director }} </p>
-            <p> {{ movieObject.data.Year }} </p>
-            <p> {{ movieObject.data.Plot }} </p>
-            <button type="button" ng-click="addFavorite(movieObject)" class="btn btn-info">Add to Favorites</button>
+          <div id='movieinfo' ng-show="searchResult.data.Title">
+            <p> {{ searchResult.data.Title }} </p>
+            <p> {{ searchResult.data.Director }} </p>
+            <p> {{ searchResult.data.Year }} </p>
+            <p> {{ searchResult.data.Plot }} </p>
+            <button type="button" ng-click="addFavorite(searchResult)" class="btn btn-info">Add to Favorites</button>
           </div>
       </div>
-
       <div ng-controller="FavoriteController" class="col-md-8 text-center">
         <h2>Favorite Movies</h2>
-          <div id="array" class="well" ng-repeat="movie in favoritesArray">
-            <p> {{ movie.Title }} </p>
-            <p> {{ movie.Director }} </p>
-            <p> {{ movie.Year }} </p>
-            <p> {{ movie.Plot }} </p>
+          <div id="array" class="well" ng-repeat="favorite in movieObject.data">
+            <p> {{ favorite.title }} </p>
+            <p> {{ favorite.director }} </p>
+            <p> {{ favorite.year }} </p>
+            <p> {{ favorite.plot }} </p>
           </div>
       </div>
-
     </div>
   </body>
 </html>

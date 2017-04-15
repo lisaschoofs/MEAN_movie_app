@@ -1,0 +1,22 @@
+Good job, Lisa! You're very close to having hard mode complete.
+The data is being stored in Mongo but isn't being displayed after page refresh.
+For data binding to work, you want to set the data as a property of the object you're binding to.
+Replacing the entire object, instead of a property, will stop the view from being able to bind to the object.
+
+In addition to that, there is one other minor change that needs to be made.
+Mongo is creating a collection named movies rather than movie.
+Make sure to always reference the plural version of the collection when creating the model connected to your schema.
+Overall, your code is looking good. You have good comments on the client side, a readme and a good number of commits.
+This will be helpful when diving into your solo and group projects.
+The client.js file could be cleaned up a bit, both in code formatting and consistency.
+
+
+
+
+
+
+I'd recommend declaring your functions in the factory and keeping your return object concise.
+Nice work utilizing grunt. It looks like you're tracking well on this.
+It was a big assignment with a lot of components.
+Great work getting through base mode and most of hard mode.
+If you have time, I'd recommend going back and finishing that up.
