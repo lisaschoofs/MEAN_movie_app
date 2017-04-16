@@ -31,8 +31,8 @@
         </div>
         <div ng-controller="FavoriteController" class="col-md-8 text-center">
           <h2>Favorite Movies</h2>
-            <div id="array" class="well" ng-repeat="favorite in movieObject.data">
-              <p> Title: {{ favorite.title }} </p>
+            <div class="well" ng-repeat="favorite in movieObject.data">
+              <p id="title"> {{ favorite.title }} </p>
               <p> Director: {{ favorite.director }} </p>
               <p> Year: {{ favorite.year }} </p>
               <p> Plot: {{ favorite.plot }} </p>

@@ -8,8 +8,13 @@ h1 {
 
 .well {
   background-color: #9CADCE;
+  color:
 }
 
 .jumbotron {
   background-color: #7EC4CF;
+}
+
+#title {
+  font-weight: bold;
 }
