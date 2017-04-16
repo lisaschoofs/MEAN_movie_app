@@ -1,15 +1,15 @@
-/*html {
-  background-color: teal;
-}*/
-
-/*div {
-  background-color: lightskyblue;
-}*/
+div {
+  background-color: #52b2cf;
+}
 
 h1 {
   text-align: center;
 }
-/*
-h2 {
-  background-color: lightskyblue;
-}*/
+
+.well {
+  background-color: #9CADCE;
+}
+
+.jumbotron {
+  background-color: #7EC4CF;
+}
