@@ -1,27 +1,19 @@
-Welcome to your 5th Weekend Challenge!
+# Prime Weekend Challenge 5 - Angular & APIs
 
-For this challenge, you will be working with Angular and the OMDB API to build an application that can search movies, and then a user can store their favorites!
+For this challenge, we worked with Angular and the OMDB API to build an application that can search movies and allow users to store their favorites. During this week in the program, we had just started learning AngularJS. 
 
-# Base Mode
-Your application will need to be built from the ground up using Angular, Node, Express, and Bootstrap. The requirements of the application are:
+At the time of this project's creation, the OMDB API was free for use. Since that time, OMDB stopped offering free access to its API. If you try to download this project and run it locally, it unfortunately will not work.
 
-  - [x] There should be two views to the application, one side that searches and displays movie information made available from OMDB. This should be accomplished by having an entry field for the search string, then a submit button that sends the information to OMDB.
+## Technologies Used:
 
-  - [x] When the API returns the response, the response should be data bound between an object and the response so that the search information appears as soon as the response returns from the API.
+- AngularJS
+- MongoDB
+- Node.js
+- Express
+- Bootstrap
+- HTML 5
+- CSS 3
 
-  - [x] You MUST use an Angular factory to send the API call ($http).
+## Acknowledgments
 
-  - [x] The information that is returned from the API will be a movie object. You must display some of the movie information on the DOM in a meaningful way. Additionally, you must have an 'add to favorites' button on those results.
-
- - [x] When the 'add to favorites' button is clicked, it should record the information for the movie and store it into an array of favorites.
-
- - [x] The other view should display the favorite movies selected by the user.
-
-## Hard Mode
- - [x] When a favorite is added to the favorites list, store the favorites list in a Mongo Database.
-
-## Pro Mode
- - [] Add the ability to remove a movie from the Mongo Database, and ensure that the favorites view updates as well.
-
-## Master Mode
- - [] Host the application on Heroku and mLabs. No need to do a data dump of an existing database.
+- The instructors and staff at [Prime Digital Academy](https://primeacademy.io/)
